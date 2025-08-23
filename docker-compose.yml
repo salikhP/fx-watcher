@@ -1,0 +1,16 @@
+services:
+  pg_db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: fx-watcher
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: fx-watcher
+    ports:
+      - "5433:5432"
+    volumes:
+      - fx_watcher_data:/var/lib/postgresql/data
+
+volumes:
+  fx_watcher_data:
